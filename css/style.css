@@ -1224,6 +1224,7 @@ ul.slick-dots button {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .breadcrumbs__item {
@@ -2740,6 +2741,20 @@ ul.footer__list {
     }
     .page_title {
         margin-bottom: 30px;
+    }
+    .breadcrumbs__container {
+        padding-top: 30px;
+    }
+    .breadcrumbs__link {
+        font-size: 14px;
+    }
+    .breadcrumbs__item:first-child breadcrumbs__link{
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
+    .breadcrumbs__item:first-child {
+        margin-right: 25px;
     }
 }
 
