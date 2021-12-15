@@ -31,6 +31,9 @@ body {
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Cera Pro';
 }
 
 ul[class],
@@ -72,30 +75,6 @@ select {
     }
 }
 
-@font-face {
-    font-family: 'Red Hat Text';
-    src: url('../fonts/RedHatText-Regular.ttf');
-    src: local('☺'), url('../fonts/RedHatText-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Red Hat Text';
-    src: url('../fonts/RedHatText-Medium.eot');
-    src: local('☺'), url('../fonts/RedHatText-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Red Hat Text';
-    src: url('../fonts/RedHatText-Bold.eot');
-    src: local('☺'), url('../fonts/RedHatText-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
-
 .container {
     margin: 0 auto;
     padding: 0 10px;
@@ -110,6 +89,60 @@ select {
 
 @media( max-width: 1650px) {
     .container {
+        width: 1460px;
+    }
+}
+
+@media(max-width: 1560px) {
+    .container {
         width: 1360px;
     }
+}
+
+@media(max-width: 1460px) {
+    .container {
+        width: 1260px;
+    }
+}
+
+@media(max-width: 1360px) {
+    .container {
+        width: 1160px;
+    }
+}
+
+@media(max-width: 1260px) {
+    .container {
+        width: 1060px;
+    }
+}
+
+@media(max-width: 1100px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('../fonts/CeraPro-Regular.eot');
+    src: local('☺'), url('../fonts/CeraPro-Regular.woff') format('woff'), url('../fonts/CeraPro-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('../fonts/CeraPro-Medium.eot');
+    src: local('☺'), url('../fonts/CeraPro-Medium.woff') format('woff'), url('../fonts/CeraPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('../fonts/CeraPro-Bold.eot');
+    src: local('☺'), url('../fonts/CeraPro-Bold.woff') format('woff'), url('../fonts/CeraPro-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
 }
