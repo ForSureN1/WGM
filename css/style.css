@@ -135,6 +135,7 @@
 }
 
 .nav__menu-item {
+    position: relative;
     margin-right: 50px;
 }
 
@@ -150,6 +151,18 @@
 
 .nav__menu-item:last-child {
     margin-right: 0;
+}
+
+.menu__item-child {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__item-child {
+    font-size: 14px;
 }
 
 .slick-list.draggable {
@@ -922,6 +935,20 @@ ul.slick-dots button {
 
 .footer_link {
     color: #ffffff;
+    position: relative;
+}
+.footer_link::before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    transition: .2s linear;
+}
+.footer_link:hover::before {
+    width: 100%;
 }
 
 .footer_link.heading {
@@ -956,8 +983,12 @@ ul.slick-dots button {
 .ast-link {
     color: #ffffff;
     border-bottom: 1px solid #ffffff;
+    transition: .2s linear;
 }
 
+.ast-link:hover {
+    color: #C9BD80;
+}
 
 /* ANIMATION MAIN PAGE */
 
