@@ -2359,7 +2359,8 @@ ul.footer__list {
     }
 }
 @media(max-width: 1650px) and (max-height: 800px) {
-    .slick_prev.head_arrow, .slick_next.head_arrow {
+    .slick_prev.head_arrow, .slick_next.head_arrow,
+    .number-slide {
         top: 90%;
     }
     .header__bottom-items {
@@ -2382,6 +2383,7 @@ ul.footer__list {
     .main-slider__background ul.slick-dots li {
         margin-bottom: 35px;
     }
+
 }
 
 @media(max-width: 1560px) {
@@ -2605,6 +2607,13 @@ ul.footer__list {
     }
     .footer_link {
         font-size: 14px;
+    }
+    .number-slide {
+        transform: unset;
+    }
+    .slick_prev.head_arrow, .slick_next.head_arrow, 
+    .number-slide {
+        top: 80%;
     }
 }
 
