@@ -441,3 +441,131 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 })
+
+
+
+function r(t, e) {
+    var n = parseFloat(t).toFixed(e);
+    return "ru" == $("html").attr("lang") ? (n = n.replace(/\./g, ","),
+    n = n.replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;")) : n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+    n
+}
+
+$.ajax({
+    url: "https://tools.eurolandir.com/tools/pricefeed/?companycode=je-poly&index=1&format=json",
+    dataType: "jsonp",
+    success: function(t) {
+        var e = t
+          , n = r(e.LondonGold.Last, 2)
+          , i = r(e.LondonGold.Change, 2)
+          , a = r(e.LondonGold.ChangePercent, 2)
+          , o = "indicator--down";
+        return "-" !== i[0] && (i = "+" + i,
+        a = "+" + a,
+        o = "indicator--up"),
+        a += "%",
+        $(".js-stockchart--small__GOLD").addClass(o),
+        $(".js-stockchart--small__GOLD").find(".js-stockchart--small__value").html(n),
+        $(".js-stockchart--small__GOLD").find(".js-stockchart--small__diff").html(a),
+        e,
+        console.log(e)
+    },
+    error: function(t) {
+        console.error("Error: " + (0,
+        l.default)(t))
+    }
+})
+
+$.ajax({
+    url: "https://tools.eurolandir.com/tools/pricefeed/?companycode=je-poly&format=json",
+    dataType: "jsonp",
+    success: function(t) {
+        var e = t
+          , n = r(e["Polymetal International (AIX)"].Last, 2)
+          , i = r(e["Polymetal International (AIX)"].ChangePercent, 2)
+          , a = r(e["Polymetal International (AIX)"].Change, 2)
+          , o = e["Polymetal International (AIX)"].Date
+          , l = e["Polymetal International (AIX)"].Currency
+          , c = r(e["Polymetal International (MOEX)"].Last, 2)
+          , d = r(e["Polymetal International (MOEX)"].ChangePercent, 2)
+          , h = r(e["Polymetal International (MOEX)"].Change, 2)
+          , f = e["Polymetal International (MOEX)"].Date
+          , p = e["Polymetal International (MOEX)"].Currency
+          , m = e["Polymetal International (MOEX)"].MarketName
+          , g = r(e["Polymetal International (MOEX)"].NoShares, 0)
+          , v = r(e["Polymetal International (MOEX)"].MarketCap, 0)
+          , _ = r(e["Polymetal International (LSE)"].Last, 2)
+          , y = r(e["Polymetal International (LSE)"].ChangePercent, 2)
+          , b = r(e["Polymetal International (LSE)"].Change, 2)
+          , x = e["Polymetal International (LSE)"].Date
+          , w = e["Polymetal International (LSE)"].Currency
+          , M = e["Polymetal International (LSE)"].ISIN
+          , S = e["Polymetal International (LSE)"].Symbol
+          , L = e["Polymetal International (LSE)"].MarketName
+          , k = r(e["Polymetal International (LSE)"].NoShares, 0)
+          , T = r(e["Polymetal International (LSE)"].MarketCap, 0)
+          , D = "key-indicator__diff--decr key-indicator__diff--incr"
+          , C = "key-indicator__diff--decr"
+          , A = "key-indicator__diff--decr"
+          , E = "key-indicator__diff--decr";
+        "-" !== i[0] && (i = "+" + i,
+        a = "+" + a,
+        C = "key-indicator__diff--incr"),
+        "-" !== d[0] && (d = "+" + d,
+        h = "+" + h,
+        A = "key-indicator__diff--incr"),
+        "-" !== y[0] && (y = "+" + y,
+        b = "+" + b,
+        E = "key-indicator__diff--incr"),
+        i = "(" + i + "%)",
+        d = "(" + d + "%)",
+        y = "(" + y + "%)",
+        T = "ru" == $("html").attr("lang") ? Math.round(parseInt(T.replace(/&nbsp;/g, "")) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") : Math.round(parseInt(T.replace(/,/g, "")) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        $.each(function(t, e) {
+            $(e).find(".js-stockchart__AIX-value").html(n),
+            $(e).find(".js-stockchart__MICEX-value").html(c),
+            $(e).find(".js-stockchart__LSE-value").html(_),
+            $(e).find(".js-stockchart__AIX-change_percent").removeClass(D).addClass(C).html(i),
+            $(e).find(".js-stockchart__MICEX-change_percent").removeClass(D).addClass(A).html(d),
+            $(e).find(".js-stockchart__LSE-change_percent").removeClass(D).addClass(E).html(y),
+            $(e).find(".js-stockchart__AIX-change").removeClass(D).addClass(C).html(a),
+            $(e).find(".js-stockchart__MICEX-change").removeClass(D).addClass(A).html(h),
+            $(e).find(".js-stockchart__LSE-change").removeClass(D).addClass(E).html(b),
+            $(e).find(".js-stockchart__AIX-date").html(s(o).format("DD MMM YYYY HH:mm")),
+            $(e).find(".js-stockchart__MICEX-date").html(s(f).format("DD MMM YYYY HH:mm")),
+            $(e).find(".js-stockchart__LSE-date").html(s(x).format("DD MMM YYYY HH:mm")),
+            $(e).find(".js-stockchart__AIX-currency").html(l),
+            $(e).find(".js-stockchart__MICEX-currency").html(p),
+            $(e).find(".js-stockchart__LSE-currency").html(w),
+            $(e).find(".js-stockchart__MICEX-market_name").html(m),
+            $(e).find(".js-stockchart__LSE-market_name").html(L),
+            $(e).find(".js-stockchart__MICEX-no_shares").html(g),
+            $(e).find(".js-stockchart__LSE-no_shares").html(k),
+            $(e).find(".js-stockchart__MICEX-cap").html(v),
+            $(e).find(".js-stockchart__LSE-cap").html(T),
+            $(e).find(".js-stockchart__LSE-ISIN").html(M),
+            $(e).find(".js-stockchart__LSE-symbol").html(S)
+        });
+        var j = "indicator--down indicator--up"
+          , Y = "indicator--down"
+          , P = "indicator--down"
+          , z = "indicator--down";
+        return "-" !== a[0] && (Y = "indicator--up"),
+        "-" !== h[0] && (P = "indicator--up"),
+        "-" !== b[0] && (z = "indicator--up"),
+        $(".js-stockchart--small__LSE").removeClass(j).addClass(z),
+        $(".js-stockchart--small__AIX").removeClass(j).addClass(Y),
+        $(".js-stockchart--small__MICEX").removeClass(j).addClass(P),
+        $(".js-stockchart--small__LSE").find(".js-stockchart--small__value").html(_),
+        $(".js-stockchart--small__AIX").find(".js-stockchart--small__value").html(n),
+        $(".js-stockchart--small__MICEX").find(".js-stockchart--small__value").html(c),
+        $(".js-stockchart--small__LSE").find(".js-stockchart--small__diff").html(y.substr(1, y.length - 2)),
+        $(".js-stockchart--small__MICEX").find(".js-stockchart--small__diff").html(d.substr(1, d.length - 2)),
+        $(".js-stockchart--small__AIX").find(".js-stockchart--small__diff").html(i.substr(1, i.length - 2)),
+        e
+    },
+    error: function(t) {
+        console.error("Error: " + (0,
+        l.default)(t))
+    }
+})
