@@ -2615,6 +2615,9 @@ ul.footer__list {
     .number-slide {
         top: 80%;
     }
+    .main-slider__info {
+        top: 45%;
+    }
 }
 
 @media(max-width: 880px) {
@@ -2650,10 +2653,10 @@ ul.footer__list {
 }
 @media(max-width: 750px) {
     .slick_prev.head_arrow {
-        left: 20%;
+        left: 30%;
     }
     .slick_next.head_arrow {
-        left: 30%;
+        left: 45%;
     }
 }
 
@@ -2721,7 +2724,7 @@ ul.footer__list {
         padding: 10px 0;
     }
     .slick_next.head_arrow {
-        left: 35%;
+        left: 45%;
     }
     .main-slider__background ul.slick-dots li {
         margin-bottom: 30px;
