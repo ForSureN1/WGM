@@ -2934,6 +2934,13 @@ ul.footer__list {
     .stock__item {
         font-size: 11px;
     }
+    .copyright__items {
+        flex-direction: column;
+        align-items: center;
+    }
+    .copyright__item:nth-child(2) {
+        margin-top: 20px;
+    }
 }
 
 @media(max-width: 530px) {
