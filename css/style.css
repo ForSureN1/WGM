@@ -2814,6 +2814,9 @@ ul.footer__list {
         width: 30px;
         height: 30px;
     }
+    .project__map span {
+        font-size: 12px;
+    }
 }
 @media(max-width: 950px) {
     .news__items.other .news__item{
