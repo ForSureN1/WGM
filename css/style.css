@@ -2692,6 +2692,9 @@ ul.footer__list {
     .slick_prev.part_arrow {
         left: 0;
     }
+    .news__items.other .news__img-link {
+        height: 130px;
+    }
 }
 
 @media(max-width: 1000px) {
@@ -2791,7 +2794,22 @@ ul.footer__list {
         margin-bottom: 15px;
     }
 }
-
+@media(max-width: 950px) {
+    .news__items.other .news__item{
+        width: 32%;
+        margin-right: 2%;
+        margin-top: 30px;
+    }
+    .news__items.other .news__item:nth-child(3n+3) {
+        margin-right: 0;
+    }
+    .news__items.other .news__item:nth-child(4) {
+        margin-top: 30px;
+    }
+    .news__items.other .news__img-link {
+        height: 170px;
+    }
+}
 @media(max-width: 900px) {
     .vacancy__item {
         width: 48%;
@@ -2850,6 +2868,12 @@ ul.footer__list {
     .hub__container  {
         padding: 50px 0;
     }
+    .news__items.other .news__img-link {
+        height: 140px;
+    }
+    .news__items.other .news__item {
+        padding: 15px;
+    }
 }
 @media(max-width: 780px) {
     .counter__item {
@@ -2890,6 +2914,18 @@ ul.footer__list {
     }
     ul.footer__list {
         margin-right: 20px;
+    }
+    .news__items.other .news__item {
+        width: 48%;
+    }
+    .news__items.other .news__item:nth-child(odd) {
+        margin-right: 2%;
+    }
+    .news__items.other .news__item:nth-child(even) {
+        margin-right: 0;
+    }
+    .news__items.other .news__img-link {
+        height: 190px;
     }
 }
 
@@ -2961,6 +2997,9 @@ ul.footer__list {
     .copyright__item:nth-child(2) {
         margin-top: 20px;
     }
+    .news__items.other .news__img-link {
+        height: 150px;
+    }
 }
 
 @media(max-width: 530px) {
@@ -3018,6 +3057,13 @@ ul.footer__list {
     .news__title {
         margin-right: 10px;
     }
+    .news__items.other .news__item {
+        width: 100%;
+        margin-right: 0!important;
+    }
+    .news__items.other .news__img-link {
+        height: 270px;
+    }
 }
 
 
@@ -3069,5 +3115,20 @@ ul.footer__list {
     }
     .hub__item:last-child {
         margin-bottom: 0;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .news__items.other .news__img-link {
+        height: 230px;
+    }
+}
+
+@media(max-width: 400px) {
+    .title {
+        font-size: 26px;
+    }
+    .news__items.other .news__img-link {
+        height: 200px;
     }
 }
