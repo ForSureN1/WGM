@@ -2321,6 +2321,9 @@ ul.footer__list {
     .slick_next.head_arrow {
         left: 61%;
     }
+    .number-slide {
+        top: 85%;
+    }
 }
 @media(max-width: 1650px) {
     .main-slider__header {
