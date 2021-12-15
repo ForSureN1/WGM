@@ -2376,6 +2376,9 @@ ul.footer__list {
     .main-slider__child {
         height: 450px;
     }
+    .main-slider__background ul.slick-dots li {
+        margin-bottom: 35px;
+    }
 }
 
 @media(max-width: 1560px) {
