@@ -85,13 +85,52 @@
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
+    position: relative;
+    z-index: 9;
 }
+
+.other__lang {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s ease-in-out;
+    width: 100%;
+}
+.other__lang.active {
+    max-height: 55px;
+}
+
+.other__lang-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: .2s linear;
+}
+
+.other__lang-link:hover {
+    background: #C9BD80;
+    color: #fff;
+}
+
+.other__lang-link.active {
+    background: #C9BD80;
+    color: #fff;
+}
+
 
 .header__lang img {
     transition: .7s ease;
 }
-
-.header__lang:hover img {
+.header__lang-active {
+    display: flex;
+}
+.header__lang-active:hover img {
     transform: rotate(360deg);
 }
 
@@ -138,6 +177,18 @@
     position: relative;
     margin-right: 50px;
 }
+.menu__item-link {
+    display: flex;
+    white-space: nowrap;
+}
+.menu__item-link img {
+    margin-left: 10px;
+    transition: .3s linear;
+    pointer-events: none;
+}
+.menu__item-link.active img {
+    transform: rotate(180deg);
+}
 
 .nav__menu-item a {
     color: #ffffff;
@@ -159,10 +210,22 @@
     left: 0;
     display: flex;
     flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s linear;
+}
+
+.menu__item-child.active {
+    max-height: 250px;
 }
 
 .menu__item-child {
     font-size: 14px;
+    background: #193A59;
+}
+
+.item__child-link {
+    margin: 5px 8px;
 }
 
 .slick-list.draggable {
@@ -526,6 +589,11 @@ ul.slick-dots button {
     color: #ffffff;
     font-weight: 700;
     line-height: 90%;
+    transition: .3s linear;
+}
+
+.btn-more:hover {
+    background: #C9BD80;
 }
 
 .btn-more img {
@@ -1286,6 +1354,24 @@ ul.slick-dots button {
     font-weight: 500;
     font-size: 16px;
 }
+
+.breadcrumbs__item:not(:first-child, :last-child) .breadcrumbs__link::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 1px;
+    background: #000;
+    top: 100%;
+    left: 0;
+    transition: .3s ease-in-out;
+}
+
+.breadcrumbs__item:not(:first-child, :last-child) .breadcrumbs__link:hover::after {
+    width: 100%;
+}
+
+
+
 
 .breadcrumbs__container {
     padding-bottom: 0!important;
@@ -2366,7 +2452,7 @@ ul.footer__list {
         transform: translateY(-60%);
     }
     .number-slide {
-        left: 5%;
+        left: 2%;
         transform: rotate(90deg);
     }
     .slick_prev.head_arrow, .slick_next.head_arrow,
@@ -2549,7 +2635,7 @@ ul.footer__list {
 }
 
 @media(max-width: 1260px) {
-    .nav__menu-item a {
+    .menu__item-link {
         font-size: 14px;
     }
     .main-slider__child {
@@ -2631,9 +2717,11 @@ ul.footer__list {
         right: 0;
         top: 100%;
         background: #193A59;
-        max-height: 0;
-        overflow: hidden;
-        transition: .5s ease-in-out;
+        display: none;
+        /* max-height: 0;
+        overflow: hidden; */
+        /* transition: .5s ease-in-out; */
+        width: 300px;
     }
     .menu.active {
         max-height: 300px;
@@ -2649,7 +2737,6 @@ ul.footer__list {
     .nav__menu-item:last-child{
         margin-bottom: 0;
     }
-
 
     .menu-btn {
         display: block;
@@ -2737,6 +2824,14 @@ ul.footer__list {
     .newsinner__item {
         padding: 12px;
     }
+    .menu__item-child {
+        position: relative;
+    }
+    .item__child-link {
+        font-size: 12px;
+        margin: 5px 0;
+        padding-left: 15px;
+    }
 }
 
 @media(max-width: 1000px) {
@@ -2800,8 +2895,8 @@ ul.footer__list {
         top: 45%;
     }
     .number-slide {
-        left: 7%;
-        top: 87%;
+        left: 1%;
+        top: 89%;
     }
     .about.other .about__items {
         flex-direction: column;
@@ -3006,6 +3101,9 @@ ul.footer__list {
     .project__item:not(:last-child)::before {
         display: none;
     }
+    .menu {
+        width: 250px;
+    }
 }
 
 @media(max-width: 700px) {
@@ -3035,7 +3133,11 @@ ul.footer__list {
         height: 190px;
     }
 }
-
+@media(max-height: 650px) {
+    .main-slider__container {
+        height: 100%;
+    }
+}
 @media(max-width: 650px) {
     .wrapper {
         width: 80%;
