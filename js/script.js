@@ -255,54 +255,98 @@ function animationText() {
 window.addEventListener('DOMContentLoaded', () => {
 
     // burger
-    let menu_btn = document.querySelector('.menu-btn')
-    let menu = document.querySelector('.menu')
-    if(menu_btn) {
-        menu_btn.addEventListener('click', ()=> {
-            menu_btn.classList.toggle('active')
-            menu.classList.toggle('active')
+    $('.menu-btn').on('click', (e) => {
+        if(e.target.classList.contains('active')) {
+            $('.menu').slideUp();
+            e.target.classList.remove('active')
+        } else {
+            e.target.classList.add('active')
+            $('.menu').slideDown();
+        }
+    });
+
+    // lang 
+    let lang = document.querySelector('.header__lang-active')
+    let otherlang = document.querySelector('.other__lang')
+    if(lang) {
+        lang.addEventListener('click', () => {
+            otherlang.classList.toggle('active')
         })
+    }
+
+    //nav menu
+    let nav_menu = document.querySelector('.nav__menu')
+
+    if(nav_menu) {
+        nav_menu.addEventListener('click', showMenu)
+    }
+    function showMenu(e) {
+        const target = e.target;
+        let openmenu = document.querySelectorAll('.menu__item-child.active')
+        let openlink = document.querySelectorAll('.menu__item-link.active')
+        if(target.classList.contains('active')) {
+            if(target.nextElementSibling.classList.contains('menu__item-child')) {
+                openmenu.forEach(item => {
+                    item.classList.remove('active')
+                })
+                target.classList.remove('active')
+            } else {
+
+            }
+        } else if(target.classList.contains('menu__item-link')) {
+            openmenu.forEach(item => {
+                item.classList.remove('active')
+            })
+            target.nextElementSibling.classList.add('active')
+            openlink.forEach(link => {
+                link.classList.remove('active')
+            })
+            target.classList.add('active')
+        }
+
     }
 
 
     let main_slider = document.querySelector('.main-slider')
     if (main_slider) {
         document.querySelector('body').style.overflow = "hidden";
-        let anim1 = document.querySelector('.main-slider')
-        anim1.classList.add('animation')
-        let anim2 = document.querySelector('.main-slider__header')
-        anim2.classList.add('firstanimation')
-        let anim3 = document.querySelector('.main-slider__text')
-        anim3.classList.add('firstanimation')
-        let anim4 = document.querySelector('.btn-more')
-        anim4.classList.add('animation')
-        let anim5 = document.querySelector('li.slick-active')
-        anim5.classList.add('animation')
-        let anim6 = document.querySelectorAll('.head_arrow')
-        anim6.forEach(btn => {
-            btn.classList.add('animation')
-        })
-        let anim7 = document.querySelectorAll('.main-slider__child-item')
-        let anim8 = document.querySelector('.number-slide')
-        anim8.classList.add('animation')
-
+        $('.header').addClass('animation')
+        $('.header__stock').addClass('animation')
+        $('.header__phone').addClass('animation')
+        $('.header__lang').addClass('animation')
+        $('.header__bottom-items').addClass('animation')
+        $('.main-slider__child-item.one:not(.slick-cloned)').addClass('animation_one')
+        $('.main-slider__child-item.two:not(.slick-cloned)').addClass('animation_two')
+        $('.main-slider__child-item.three:not(.slick-cloned)').addClass('animation_three')
+        $('.main-slider').addClass('animation')
+        $('.main-slider__header').addClass('firstanimation')
+        $('.main-slider__text').addClass('firstanimation')
+        $('.btn-more').addClass('animation')
+        $('li.slick-active').addClass('animation')
+        $('.head_arrow').addClass('animation')
+        $('.number-slide').addClass('animation')
 
         let lastanim = document.querySelector('.head_arrow')
         if (lastanim) {
 
         }
+
         lastanim.addEventListener('animationend', () => {
-            anim1.classList.remove('animation')
-            anim2.classList.remove('firstanimation')
-            anim3.classList.remove('firstanimation')
-            anim4.classList.remove('animation')
-            anim5.classList.remove('animation')
-            for (let i = 0; i < anim7.length; i++) {
-                anim7[0].classList.remove('animation_one')
-                anim7[1].classList.remove('animation_two')
-                anim7[2].classList.remove('animation_three')
-            }
-            anim8.classList.remove('animation')
+            $('.header').removeClass('animation')
+            $('.header__stock').removeClass('animation')
+            $('.header__phone').removeClass('animation')
+            $('.header__lang').removeClass('animation')
+            $('.header__bottom-items').removeClass('animation')
+            $('.main-slider__child-item.one:not(.slick-cloned)').removeClass('animation_one')
+            $('.main-slider__child-item.two:not(.slick-cloned)').removeClass('animation_two')
+            $('.main-slider__child-item.three:not(.slick-cloned)').removeClass('animation_three')
+            $('.main-slider').removeClass('animation')
+            $('.main-slider__header').removeClass('firstanimation')
+            $('.main-slider__text').removeClass('firstanimation')
+            $('.btn-more').removeClass('animation')
+            $('li.slick-active').removeClass('animation')
+            $('.head_arrow').removeClass('animation')
+            $('.number-slide').removeClass('animation')
             animationText();
             $('.main-slider__background').slick('slickNext');
             $('.main-slider__background').slick('slickSetOption', 'autoplay', true, true);
