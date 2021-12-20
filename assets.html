@@ -12,16 +12,16 @@
 </head>
 
 <body>
-    <header class="header other">
+    <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="header__top-items">
                     <div class="header__stock">
-                        <ul class="stock__list">
-                            <li class="stock__item">lse: 1 337,0 <span>-0,59%</span></li>
-                            <li class="stock__item">moex: 1 337,0 <span>-0,74%</span></li>
-                            <li class="stock__item">aix: 18,40 <span>+0,66%</span></li>
-                            <li class="stock__item">gold: 1 757,75 <span>+0,16%</span></li>
+                        <ul class="stock__list js-stockchart--small">
+                            <li class="stock__item indicator js-stockchart--small__LSE">lse: <span class="js-stockchart--small__value"></span><span class="indicator__diff js-stockchart--small__diff"></span></li>
+                            <li class="stock__item indicator js-stockchart--small__MICEX">moex: <span class="js-stockchart--small__value"></span><span class="indicator__diff js-stockchart--small__diff"></span></li>
+                            <li class="stock__item indicator js-stockchart--small__AIX">aix: <span class="js-stockchart--small__value"></span><span class="indicator__diff js-stockchart--small__diff"></span></li>
+                            <li class="stock__item indicator js-stockchart--small__GOLD">gold: <span class="js-stockchart--small__value"></span><span class="indicator__diff js-stockchart--small__diff"></span></li>
                         </ul>
                     </div>
                     <div class="header__contacts">
@@ -29,7 +29,13 @@
                             <img src="img/phone.svg" alt="Телефон">
                             <a href="tel:+7 705 782 60 74" class="phone__link">+7 705 782 60 74</a>
                         </div>
-                        <div class="header__lang">ru<img src="img/planet.svg" alt=""></div>
+                        <div class="header__lang">
+                            <span class="header__lang-active">ru<img src="img/planet.svg" alt=""></span>
+                            <div class="other__lang">
+                                <a href="#" class="other__lang-link active">ru</a>
+                                <a href="#" class="other__lang-link">en</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,10 +55,21 @@
                                 <a href="#" class="menu__item-link">О компании</a>
                             </li>
                             <li class="nav__menu-item">
-                                <a href="#" class="menu__item-link">Активы</a>
+                                <a href="#" class="menu__item-link">Активы <img src="img/headarr.svg" alt=""></a>
+                                <div class="menu__item-child">
+                                    <a href="#" class="item__child-link">География деятельности</a>
+                                    <a href="#" class="item__child-link">Развитие и рост</a>
+                                    <a href="#" class="item__child-link">Запасы и ресурсы</a>
+                                    <a href="#" class="item__child-link">Инжиниринг</a>
+                                </div>
                             </li>
                             <li class="nav__menu-item">
-                                <a href="#" class="menu__item-link">Инвесторы и СМИ</a>
+                                <a href="#" class="menu__item-link">Инвесторы и СМИ <img src="img/headarr.svg" alt=""></a>
+                                <div class="menu__item-child">
+                                    <a href="#" class="item__child-link">Новости</a>
+                                    <a href="#" class="item__child-link">Отчеты и результаты</a>
+                                    <a href="#" class="item__child-link">Инвистиционная Привлекательность</a>
+                                </div>
                             </li>
                             <li class="nav__menu-item">
                                 <a href="#" class="menu__item-link">Устойчивое развитие</a>
@@ -65,6 +82,7 @@
                             </li>
                         </ul>
                     </nav>
+                    <a href="javascript:;" class="menu-btn"></a>
                 </div>
             </div>
         </div>
