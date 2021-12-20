@@ -12,11 +12,11 @@
 </head>
 
 <body>
-    <header class="header animation">
+    <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="header__top-items">
-                    <div class="header__stock animation">
+                    <div class="header__stock">
                         <ul class="stock__list js-stockchart--small">
                             <li class="stock__item indicator js-stockchart--small__LSE">lse: <span class="js-stockchart--small__value"></span><span class="indicator__diff js-stockchart--small__diff"></span></li>
                             <li class="stock__item indicator js-stockchart--small__MICEX">moex: <span class="js-stockchart--small__value"></span><span class="indicator__diff js-stockchart--small__diff"></span></li>
@@ -25,18 +25,24 @@
                         </ul>
                     </div>
                     <div class="header__contacts">
-                        <div class="header__phone phone animation">
+                        <div class="header__phone phone">
                             <img src="img/phone.svg" alt="Телефон">
                             <a href="tel:+7 705 782 60 74" class="phone__link">+7 705 782 60 74</a>
                         </div>
-                        <div class="header__lang animation">ru<img src="img/planet.svg" alt=""></div>
+                        <div class="header__lang">
+                            <span class="header__lang-active">ru<img src="img/planet.svg" alt=""></span>
+                            <div class="other__lang">
+                                <a href="#" class="other__lang-link active">ru</a>
+                                <a href="#" class="other__lang-link">en</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="header__bottom">
             <div class="container">
-                <div class="header__bottom-items animation">
+                <div class="header__bottom-items">
                     <div class="header__logo logo">
                         <a href="#" class="logo__link"><img src="img/logo.png" alt="WGM"></a>
                     </div>
@@ -49,14 +55,20 @@
                                 <a href="#" class="menu__item-link">О компании</a>
                             </li>
                             <li class="nav__menu-item">
-                                <a href="#" class="menu__item-link">Активы</a>
+                                <a href="javascript:;" class="menu__item-link">Активы <img src="img/headarr.svg" alt=""></a>
+                                <div class="menu__item-child">
+                                    <a href="#" class="item__child-link">География деятельности</a>
+                                    <a href="#" class="item__child-link">Развитие и рост</a>
+                                    <a href="#" class="item__child-link">Запасы и ресурсы</a>
+                                    <a href="#" class="item__child-link">Инжиниринг</a>
+                                </div>
                             </li>
                             <li class="nav__menu-item">
-                                <a href="#" class="menu__item-link">Инвесторы и СМИ</a>
+                                <a href="javascript:;" class="menu__item-link">Инвесторы и СМИ <img src="img/headarr.svg" alt=""></a>
                                 <div class="menu__item-child">
-                                    <a href="#">Новости</a>
-                                    <a href="#">Отчеты и результаты</a>
-                                    <a href="#">Инвистиционная Привлекательность</a>
+                                    <a href="#" class="item__child-link">Новости</a>
+                                    <a href="#" class="item__child-link">Отчеты и результаты</a>
+                                    <a href="#" class="item__child-link">Инвистиционная Привлекательность</a>
                                 </div>
                             </li>
                             <li class="nav__menu-item">
@@ -97,21 +109,21 @@
                 </div>
                 <div class="main-slider__child-wrapper">
                     <div class="main-slider__child">
-                        <div class="main-slider__child-item animation_one">
+                        <div class="main-slider__child-item one">
                             <div>
                                 <span>Производственные результаты</span>
                                 <img src="img/main1.jpg" alt="">
                             </div>
                         </div>
-                        <div  class="main-slider__child-item animation_two">
+                        <div  class="main-slider__child-item two">
                             <div>
                                 <span>Производственные результаты</span>
                                 <img src="img/main1.jpg" alt="">
                             </div>
                         </div>
-                        <div  class="main-slider__child-item animation_three">
+                        <div  class="main-slider__child-item three">
                             <div>
-                                <span>Производственные результаты</span>
+                                <span>Производственные asdasd</span>
                                 <img src="img/main1.jpg" alt="">
                             </div>
                         </div>
@@ -257,31 +269,66 @@
                                 <a href="" class="news__img-link"><img src="img/news1.jpg" alt=""></a>
                                 <div class="news__date">20.09.2021</div>
                                 <a href="#" class="news__text">Полиметалл сообщает, что выплата промежуточных дивидендов в размере US$ 0,45</a>
-                                <a href="#" class="news__link">Подробнее</a>
+                                <div href="#" class="news__link-items">
+                                    <a href="#" class="news__link">Подробнее</a>
+                                    <a href="#" class="news__link-arrow">
+                                        <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.2206 4.61088L15.81 1.09995C15.4647 0.744476 14.9033 0.744476 14.558 1.09995C14.2127 1.45541 14.2127 2.03328 14.558 2.38875L16.4599 4.34656H0.885417C0.396667 4.34656 0 4.75489 0 5.25802C0 5.76114 0.396667 6.16948 0.885417 6.16948H16.4599L14.4287 8.26036C14.0834 8.61583 14.0834 9.1937 14.4287 9.54916C14.7741 9.90463 15.3354 9.90463 15.6807 9.54916L19.2206 5.90515C19.3942 5.72651 19.4792 5.49318 19.4792 5.25802C19.4792 5.02286 19.3942 4.78953 19.2206 4.61088Z" fill="#15100D"></path>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                             <div class="news__slider-item">
                                 <a href="" class="news__img-link"><img src="img/news1.jpg" alt=""></a>
                                 <div class="news__date">20.09.2021</div>
                                 <a href="#" class="news__text">Полиметалл сообщает, что выплата промежуточных дивидендов в размере US$ 0,45</a>
-                                <a href="#" class="news__link">Подробнее</a>
+                                <div href="#" class="news__link-items">
+                                    <a href="#" class="news__link">Подробнее</a>
+                                    <a href="#" class="news__link-arrow">
+                                        <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.2206 4.61088L15.81 1.09995C15.4647 0.744476 14.9033 0.744476 14.558 1.09995C14.2127 1.45541 14.2127 2.03328 14.558 2.38875L16.4599 4.34656H0.885417C0.396667 4.34656 0 4.75489 0 5.25802C0 5.76114 0.396667 6.16948 0.885417 6.16948H16.4599L14.4287 8.26036C14.0834 8.61583 14.0834 9.1937 14.4287 9.54916C14.7741 9.90463 15.3354 9.90463 15.6807 9.54916L19.2206 5.90515C19.3942 5.72651 19.4792 5.49318 19.4792 5.25802C19.4792 5.02286 19.3942 4.78953 19.2206 4.61088Z" fill="#15100D"></path>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                             <div class="news__slider-item">
                                 <a href="" class="news__img-link"><img src="img/news1.jpg" alt=""></a>
                                 <div class="news__date">20.09.2021</div>
                                 <a href="#" class="news__text">Полиметалл сообщает, что выплата промежуточных дивидендов в размере US$ 0,45</a>
-                                <a href="#" class="news__link">Подробнее</a>
+                                <div href="#" class="news__link-items">
+                                    <a href="#" class="news__link">Подробнее</a>
+                                    <a href="#" class="news__link-arrow">
+                                        <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.2206 4.61088L15.81 1.09995C15.4647 0.744476 14.9033 0.744476 14.558 1.09995C14.2127 1.45541 14.2127 2.03328 14.558 2.38875L16.4599 4.34656H0.885417C0.396667 4.34656 0 4.75489 0 5.25802C0 5.76114 0.396667 6.16948 0.885417 6.16948H16.4599L14.4287 8.26036C14.0834 8.61583 14.0834 9.1937 14.4287 9.54916C14.7741 9.90463 15.3354 9.90463 15.6807 9.54916L19.2206 5.90515C19.3942 5.72651 19.4792 5.49318 19.4792 5.25802C19.4792 5.02286 19.3942 4.78953 19.2206 4.61088Z" fill="#15100D"></path>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                             <div class="news__slider-item">
                                 <a href="" class="news__img-link"><img src="img/news1.jpg" alt=""></a>
                                 <div class="news__date">20.09.2021</div>
                                 <a href="#" class="news__text">Полиметалл сообщает, что выплата промежуточных дивидендов в размере US$ 0,45</a>
-                                <a href="#" class="news__link">Подробнее</a>
+                                <div href="#" class="news__link-items">
+                                    <a href="#" class="news__link">Подробнее</a>
+                                    <a href="#" class="news__link-arrow">
+                                        <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.2206 4.61088L15.81 1.09995C15.4647 0.744476 14.9033 0.744476 14.558 1.09995C14.2127 1.45541 14.2127 2.03328 14.558 2.38875L16.4599 4.34656H0.885417C0.396667 4.34656 0 4.75489 0 5.25802C0 5.76114 0.396667 6.16948 0.885417 6.16948H16.4599L14.4287 8.26036C14.0834 8.61583 14.0834 9.1937 14.4287 9.54916C14.7741 9.90463 15.3354 9.90463 15.6807 9.54916L19.2206 5.90515C19.3942 5.72651 19.4792 5.49318 19.4792 5.25802C19.4792 5.02286 19.3942 4.78953 19.2206 4.61088Z" fill="#15100D"></path>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                             <div class="news__slider-item">
                                 <a href="" class="news__img-link"><img src="img/news1.jpg" alt=""></a>
                                 <div class="news__date">20.09.2021</div>
                                 <a href="#" class="news__text">Полиметалл сообщает, что выплата промежуточных дивидендов в размере US$ 0,45</a>
-                                <a href="#" class="news__link">Подробнее</a>
+                                <div href="#" class="news__link-items">
+                                    <a href="#" class="news__link">Подробнее</a>
+                                    <a href="#" class="news__link-arrow">
+                                        <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.2206 4.61088L15.81 1.09995C15.4647 0.744476 14.9033 0.744476 14.558 1.09995C14.2127 1.45541 14.2127 2.03328 14.558 2.38875L16.4599 4.34656H0.885417C0.396667 4.34656 0 4.75489 0 5.25802C0 5.76114 0.396667 6.16948 0.885417 6.16948H16.4599L14.4287 8.26036C14.0834 8.61583 14.0834 9.1937 14.4287 9.54916C14.7741 9.90463 15.3354 9.90463 15.6807 9.54916L19.2206 5.90515C19.3942 5.72651 19.4792 5.49318 19.4792 5.25802C19.4792 5.02286 19.3942 4.78953 19.2206 4.61088Z" fill="#15100D"></path>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
