@@ -470,6 +470,7 @@
     cursor: pointer;
     background-repeat: no-repeat;
     background-position: center;
+    transition: .3s linear;
 }
 
 .slick_prev.head_arrow {
@@ -483,6 +484,11 @@
     transform: translateX(-60%) rotate(180deg);
     background-image: url('../img/arrow.svg');
 }
+.slick_prev.head_arrow:hover,
+.slick_next.head_arrow:hover {
+    background-color: #C9BD80;
+}
+
 
 .main-slider__background ul.slick-dots {
     position: absolute;
