@@ -128,30 +128,30 @@ function setSlider() {
     })
 }
 
-let render = document.querySelector('.stock__list')
-let flag_slider = true;
-if (render) {
-    if (window.innerWidth < 500 && flag_slider) {
-        setSlider();
-        flag_slider = false;
-    } else if (window.innerWidth > 501 && !flag_slider) {
-        $('.stock__list').slick('unslick');
-        flag_slider = true;
-    };
+// let render = document.querySelector('.stock__list')
+// let flag_slider = true;
+// if (render) {
+//     if (window.innerWidth < 500 && flag_slider) {
+//         setSlider();
+//         flag_slider = false;
+//     } else if (window.innerWidth > 501 && !flag_slider) {
+//         $('.stock__list').slick('unslick');
+//         flag_slider = true;
+//     };
 
-    // console.log(x)
+//     // console.log(x)
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth < 500 && flag_slider) {
-            setSlider();
-            flag_slider = false;
-        } else if (window.innerWidth > 501 && !flag_slider) {
-            $('.stock__list').slick('unslick');
-            flag_slider = true;
-        }
-        // console.log(x)
-    });
-}
+//     window.addEventListener('resize', () => {
+//         if (window.innerWidth < 500 && flag_slider) {
+//             setSlider();
+//             flag_slider = false;
+//         } else if (window.innerWidth > 501 && !flag_slider) {
+//             $('.stock__list').slick('unslick');
+//             flag_slider = true;
+//         }
+//         // console.log(x)
+//     });
+// }
 
 
 
@@ -275,36 +275,48 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     //nav menu
-    let nav_menu = document.querySelector('.nav__menu')
+    // let nav_menu = document.querySelector('.nav__menu')
 
-    if(nav_menu) {
-        nav_menu.addEventListener('click', showMenu)
-    }
-    function showMenu(e) {
-        const target = e.target;
-        let openmenu = document.querySelectorAll('.menu__item-child.active')
-        let openlink = document.querySelectorAll('.menu__item-link.active')
-        if(target.classList.contains('active')) {
-            if(target.nextElementSibling.classList.contains('menu__item-child')) {
-                openmenu.forEach(item => {
-                    item.classList.remove('active')
-                })
-                target.classList.remove('active')
-            } else {
+    // if(nav_menu) {
+    //     nav_menu.addEventListener('click', showMenu)
+    // }
+    // function showMenu(e) {
+    //     const target = e.target;
+    //     let openmenu = document.querySelectorAll('.menu__item-child.active')
+    //     let openlink = document.querySelectorAll('.menu__item-link.active')
+    //     if(target.classList.contains('active')) {
+    //         if(target.nextElementSibling.classList.contains('menu__item-child')) {
+    //             openmenu.forEach(item => {
+    //                 item.classList.remove('active')
+    //             })
+    //             target.classList.remove('active')
+    //         } else {
 
-            }
-        } else if(target.classList.contains('menu__item-link')) {
-            openmenu.forEach(item => {
-                item.classList.remove('active')
-            })
-            target.nextElementSibling.classList.add('active')
-            openlink.forEach(link => {
-                link.classList.remove('active')
-            })
+    //         }
+    //     } else if(target.classList.contains('menu__item-link')) {
+    //         openmenu.forEach(item => {
+    //             item.classList.remove('active')
+    //         })
+    //         target.nextElementSibling.classList.add('active')
+    //         openlink.forEach(link => {
+    //             link.classList.remove('active')
+    //         })
+    //         target.classList.add('active')
+    //     }
+
+    // }
+    $('.menu__item-link').on("click", function(e) {
+        const target = e.target
+        if (target.classList.contains('active')) {
+            $(target.nextElementSibling).slideUp();
+            target.classList.remove('active')
+        } else {
+            $('.menu__item-child').slideUp();
+            $(target.nextElementSibling).slideDown();
+            $('.menu__item-link').removeClass('active')
             target.classList.add('active')
         }
-
-    }
+    });
 
 
     let main_slider = document.querySelector('.main-slider')
@@ -539,96 +551,96 @@ $.ajax({
     }
 })
 
-$.ajax({
-    url: "https://tools.eurolandir.com/tools/pricefeed/?companycode=je-poly&format=json",
-    dataType: "jsonp",
-    success: function(t) {
-        var e = t
-          , n = r(e["Polymetal International (AIX)"].Last, 2)
-          , i = r(e["Polymetal International (AIX)"].ChangePercent, 2)
-          , a = r(e["Polymetal International (AIX)"].Change, 2)
-          , o = e["Polymetal International (AIX)"].Date
-          , l = e["Polymetal International (AIX)"].Currency
-          , c = r(e["Polymetal International (MOEX)"].Last, 2)
-          , d = r(e["Polymetal International (MOEX)"].ChangePercent, 2)
-          , h = r(e["Polymetal International (MOEX)"].Change, 2)
-          , f = e["Polymetal International (MOEX)"].Date
-          , p = e["Polymetal International (MOEX)"].Currency
-          , m = e["Polymetal International (MOEX)"].MarketName
-          , g = r(e["Polymetal International (MOEX)"].NoShares, 0)
-          , v = r(e["Polymetal International (MOEX)"].MarketCap, 0)
-          , _ = r(e["Polymetal International (LSE)"].Last, 2)
-          , y = r(e["Polymetal International (LSE)"].ChangePercent, 2)
-          , b = r(e["Polymetal International (LSE)"].Change, 2)
-          , x = e["Polymetal International (LSE)"].Date
-          , w = e["Polymetal International (LSE)"].Currency
-          , M = e["Polymetal International (LSE)"].ISIN
-          , S = e["Polymetal International (LSE)"].Symbol
-          , L = e["Polymetal International (LSE)"].MarketName
-          , k = r(e["Polymetal International (LSE)"].NoShares, 0)
-          , T = r(e["Polymetal International (LSE)"].MarketCap, 0)
-          , D = "key-indicator__diff--decr key-indicator__diff--incr"
-          , C = "key-indicator__diff--decr"
-          , A = "key-indicator__diff--decr"
-          , E = "key-indicator__diff--decr";
-        "-" !== i[0] && (i = "+" + i,
-        a = "+" + a,
-        C = "key-indicator__diff--incr"),
-        "-" !== d[0] && (d = "+" + d,
-        h = "+" + h,
-        A = "key-indicator__diff--incr"),
-        "-" !== y[0] && (y = "+" + y,
-        b = "+" + b,
-        E = "key-indicator__diff--incr"),
-        i = "(" + i + "%)",
-        d = "(" + d + "%)",
-        y = "(" + y + "%)",
-        T = "ru" == $("html").attr("lang") ? Math.round(parseInt(T.replace(/&nbsp;/g, "")) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") : Math.round(parseInt(T.replace(/,/g, "")) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-        $.each(function(t, e) {
-            $(e).find(".js-stockchart__AIX-value").html(n),
-            $(e).find(".js-stockchart__MICEX-value").html(c),
-            $(e).find(".js-stockchart__LSE-value").html(_),
-            $(e).find(".js-stockchart__AIX-change_percent").removeClass(D).addClass(C).html(i),
-            $(e).find(".js-stockchart__MICEX-change_percent").removeClass(D).addClass(A).html(d),
-            $(e).find(".js-stockchart__LSE-change_percent").removeClass(D).addClass(E).html(y),
-            $(e).find(".js-stockchart__AIX-change").removeClass(D).addClass(C).html(a),
-            $(e).find(".js-stockchart__MICEX-change").removeClass(D).addClass(A).html(h),
-            $(e).find(".js-stockchart__LSE-change").removeClass(D).addClass(E).html(b),
-            $(e).find(".js-stockchart__AIX-date").html(s(o).format("DD MMM YYYY HH:mm")),
-            $(e).find(".js-stockchart__MICEX-date").html(s(f).format("DD MMM YYYY HH:mm")),
-            $(e).find(".js-stockchart__LSE-date").html(s(x).format("DD MMM YYYY HH:mm")),
-            $(e).find(".js-stockchart__AIX-currency").html(l),
-            $(e).find(".js-stockchart__MICEX-currency").html(p),
-            $(e).find(".js-stockchart__LSE-currency").html(w),
-            $(e).find(".js-stockchart__MICEX-market_name").html(m),
-            $(e).find(".js-stockchart__LSE-market_name").html(L),
-            $(e).find(".js-stockchart__MICEX-no_shares").html(g),
-            $(e).find(".js-stockchart__LSE-no_shares").html(k),
-            $(e).find(".js-stockchart__MICEX-cap").html(v),
-            $(e).find(".js-stockchart__LSE-cap").html(T),
-            $(e).find(".js-stockchart__LSE-ISIN").html(M),
-            $(e).find(".js-stockchart__LSE-symbol").html(S)
-        });
-        var j = "indicator--down indicator--up"
-          , Y = "indicator--down"
-          , P = "indicator--down"
-          , z = "indicator--down";
-        return "-" !== a[0] && (Y = "indicator--up"),
-        "-" !== h[0] && (P = "indicator--up"),
-        "-" !== b[0] && (z = "indicator--up"),
-        $(".js-stockchart--small__LSE").removeClass(j).addClass(z),
-        $(".js-stockchart--small__AIX").removeClass(j).addClass(Y),
-        $(".js-stockchart--small__MICEX").removeClass(j).addClass(P),
-        $(".js-stockchart--small__LSE").find(".js-stockchart--small__value").html(_),
-        $(".js-stockchart--small__AIX").find(".js-stockchart--small__value").html(n),
-        $(".js-stockchart--small__MICEX").find(".js-stockchart--small__value").html(c),
-        $(".js-stockchart--small__LSE").find(".js-stockchart--small__diff").html(y.substr(1, y.length - 2)),
-        $(".js-stockchart--small__MICEX").find(".js-stockchart--small__diff").html(d.substr(1, d.length - 2)),
-        $(".js-stockchart--small__AIX").find(".js-stockchart--small__diff").html(i.substr(1, i.length - 2)),
-        e
-    },
-    error: function(t) {
-        console.error("Error: " + (0,
-        l.default)(t))
-    }
-})
+// $.ajax({
+//     url: "https://tools.eurolandir.com/tools/pricefeed/?companycode=je-poly&format=json",
+//     dataType: "jsonp",
+//     success: function(t) {
+//         var e = t
+//           , n = r(e["Polymetal International (AIX)"].Last, 2)
+//           , i = r(e["Polymetal International (AIX)"].ChangePercent, 2)
+//           , a = r(e["Polymetal International (AIX)"].Change, 2)
+//           , o = e["Polymetal International (AIX)"].Date
+//           , l = e["Polymetal International (AIX)"].Currency
+//           , c = r(e["Polymetal International (MOEX)"].Last, 2)
+//           , d = r(e["Polymetal International (MOEX)"].ChangePercent, 2)
+//           , h = r(e["Polymetal International (MOEX)"].Change, 2)
+//           , f = e["Polymetal International (MOEX)"].Date
+//           , p = e["Polymetal International (MOEX)"].Currency
+//           , m = e["Polymetal International (MOEX)"].MarketName
+//           , g = r(e["Polymetal International (MOEX)"].NoShares, 0)
+//           , v = r(e["Polymetal International (MOEX)"].MarketCap, 0)
+//           , _ = r(e["Polymetal International (LSE)"].Last, 2)
+//           , y = r(e["Polymetal International (LSE)"].ChangePercent, 2)
+//           , b = r(e["Polymetal International (LSE)"].Change, 2)
+//           , x = e["Polymetal International (LSE)"].Date
+//           , w = e["Polymetal International (LSE)"].Currency
+//           , M = e["Polymetal International (LSE)"].ISIN
+//           , S = e["Polymetal International (LSE)"].Symbol
+//           , L = e["Polymetal International (LSE)"].MarketName
+//           , k = r(e["Polymetal International (LSE)"].NoShares, 0)
+//           , T = r(e["Polymetal International (LSE)"].MarketCap, 0)
+//           , D = "key-indicator__diff--decr key-indicator__diff--incr"
+//           , C = "key-indicator__diff--decr"
+//           , A = "key-indicator__diff--decr"
+//           , E = "key-indicator__diff--decr";
+//         "-" !== i[0] && (i = "+" + i,
+//         a = "+" + a,
+//         C = "key-indicator__diff--incr"),
+//         "-" !== d[0] && (d = "+" + d,
+//         h = "+" + h,
+//         A = "key-indicator__diff--incr"),
+//         "-" !== y[0] && (y = "+" + y,
+//         b = "+" + b,
+//         E = "key-indicator__diff--incr"),
+//         i = "(" + i + "%)",
+//         d = "(" + d + "%)",
+//         y = "(" + y + "%)",
+//         T = "ru" == $("html").attr("lang") ? Math.round(parseInt(T.replace(/&nbsp;/g, "")) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") : Math.round(parseInt(T.replace(/,/g, "")) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+//         $.each(function(t, e) {
+//             $(e).find(".js-stockchart__AIX-value").html(n),
+//             $(e).find(".js-stockchart__MICEX-value").html(c),
+//             $(e).find(".js-stockchart__LSE-value").html(_),
+//             $(e).find(".js-stockchart__AIX-change_percent").removeClass(D).addClass(C).html(i),
+//             $(e).find(".js-stockchart__MICEX-change_percent").removeClass(D).addClass(A).html(d),
+//             $(e).find(".js-stockchart__LSE-change_percent").removeClass(D).addClass(E).html(y),
+//             $(e).find(".js-stockchart__AIX-change").removeClass(D).addClass(C).html(a),
+//             $(e).find(".js-stockchart__MICEX-change").removeClass(D).addClass(A).html(h),
+//             $(e).find(".js-stockchart__LSE-change").removeClass(D).addClass(E).html(b),
+//             $(e).find(".js-stockchart__AIX-date").html(s(o).format("DD MMM YYYY HH:mm")),
+//             $(e).find(".js-stockchart__MICEX-date").html(s(f).format("DD MMM YYYY HH:mm")),
+//             $(e).find(".js-stockchart__LSE-date").html(s(x).format("DD MMM YYYY HH:mm")),
+//             $(e).find(".js-stockchart__AIX-currency").html(l),
+//             $(e).find(".js-stockchart__MICEX-currency").html(p),
+//             $(e).find(".js-stockchart__LSE-currency").html(w),
+//             $(e).find(".js-stockchart__MICEX-market_name").html(m),
+//             $(e).find(".js-stockchart__LSE-market_name").html(L),
+//             $(e).find(".js-stockchart__MICEX-no_shares").html(g),
+//             $(e).find(".js-stockchart__LSE-no_shares").html(k),
+//             $(e).find(".js-stockchart__MICEX-cap").html(v),
+//             $(e).find(".js-stockchart__LSE-cap").html(T),
+//             $(e).find(".js-stockchart__LSE-ISIN").html(M),
+//             $(e).find(".js-stockchart__LSE-symbol").html(S)
+//         });
+//         var j = "indicator--down indicator--up"
+//           , Y = "indicator--down"
+//           , P = "indicator--down"
+//           , z = "indicator--down";
+//         return "-" !== a[0] && (Y = "indicator--up"),
+//         "-" !== h[0] && (P = "indicator--up"),
+//         "-" !== b[0] && (z = "indicator--up"),
+//         $(".js-stockchart--small__LSE").removeClass(j).addClass(z),
+//         $(".js-stockchart--small__AIX").removeClass(j).addClass(Y),
+//         $(".js-stockchart--small__MICEX").removeClass(j).addClass(P),
+//         $(".js-stockchart--small__LSE").find(".js-stockchart--small__value").html(_),
+//         $(".js-stockchart--small__AIX").find(".js-stockchart--small__value").html(n),
+//         $(".js-stockchart--small__MICEX").find(".js-stockchart--small__value").html(c),
+//         $(".js-stockchart--small__LSE").find(".js-stockchart--small__diff").html(y.substr(1, y.length - 2)),
+//         $(".js-stockchart--small__MICEX").find(".js-stockchart--small__diff").html(d.substr(1, d.length - 2)),
+//         $(".js-stockchart--small__AIX").find(".js-stockchart--small__diff").html(i.substr(1, i.length - 2)),
+//         e
+//     },
+//     error: function(t) {
+//         console.error("Error: " + (0,
+//         l.default)(t))
+//     }
+// })
