@@ -256,14 +256,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // burger
     $('.menu-btn').on('click', (e) => {
-        if(e.target.classList.contains('active')) {
-            $('.menu').slideUp();
-            e.target.classList.remove('active')
-        } else {
-            e.target.classList.add('active')
-            $('.menu').slideDown();
-        }
+            if(e.target.classList.contains('active')) {
+                $('.menu').slideUp();
+                e.target.classList.remove('active')
+            } else {
+                e.target.classList.add('active')
+                $('.menu').slideDown();
+            }
     });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1100) {
+            document.querySelector('.menu').style.display = "block";
+        } else {
+            document.querySelector('.menu').style.display = "none";
+        }
+    })
 
     // lang 
     let lang = document.querySelector('.header__lang-active')
